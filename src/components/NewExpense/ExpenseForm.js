@@ -6,36 +6,21 @@ const ExpenseForm = (props) => {
   const [changeAmount, setAmount] = useState("");
   const [changeDate, setDate] = useState("");
 
-  // const [changeUserInputs,setUserInput]=useState({
-  //   changeTitle : "",
-  //   changeAmount : "",
-  //   changeDate : ""
-    
-  // });
+  
+
+  
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
-    // setUserInput({
-    //   ...changeUserInputs,
-    //   changeTitle:event.target.value
-    // });
-    // setUserInput((prevState)=>{return{...prevState,changeTitle:event.target.value}});
-    
+
   };
   const amountChangeHandler = (event) => {
     setAmount(event.target.value);
-    // setUserInput({
-    //   ...changeUserInputs,
-    //   changeAmount:event.target.value
-    // });
-    
+   
   };
 
   const dateChangeHandler = (event) => {
     setDate(event.target.value);
-    // setUserInput({
-    //   ...changeUserInputs,
-    //   changeDate:event.target.value
-    // });
+   
   };
   const onSubmitHandler=(event)=>{
     event.preventDefault();
@@ -51,7 +36,9 @@ const ExpenseForm = (props) => {
     setDate("");
 
     props.onSaveNewExpense(expenseData);
+  
   }
+
 
   return (
     <form onSubmit={onSubmitHandler}>
@@ -85,6 +72,7 @@ const ExpenseForm = (props) => {
       </div>
       <div className='new-expense__actions'>
         <button type='submit'>Add Expense</button>
+        <button onClick={props.onCancel}>Cancel</button>
       </div>
     </form>
   );
